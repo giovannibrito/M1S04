@@ -11,9 +11,27 @@
     <body>
         <header class="header">
             <img src="img/leaf.svg" alt="Logo do banco" class="header__logo" />
-            <span class="header__nome">LEAFBANK</span>
+            <h1 class="header__nome">LEAFBANK</h1>
         </header>
-        <main></main>
+        <main>
+            <form class="formulario">
+                <h2>Formulário de cadastro</h2>
+                <br />
+                <label for="nome">Nome completo</label>
+                <input type="text" name="nome" id="nome" required />
+                <label for="cpf">CPF</label>
+                <input type="number" name="cpf" id="cpf" required />
+                <label for="celular">Celular</label>
+                <input type="tel" name="celular" id="celular" />
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" />
+                <label for="senha2">Confirme a sua senha</label>
+                <input type="password" name="senha2" id="senha2" />
+                <br />
+                <input type="button" value="Enviar" />
+                <input type="button" value="Limpar" />
+            </form>
+        </main>
         <footer class="footer">
             <div class="footer__social">
                 <img src="img/facebook.png" alt="Facebook do banco" class="footer__social--img" />

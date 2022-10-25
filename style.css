@@ -38,6 +38,27 @@ body {
     margin-left: 5px;
 }
 
+main {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 40px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input:not([type="button"]) {
+    margin-bottom: 20px;
+    width: 300px;
+    height: 30px;
+}
+
+form input[type="button"] {
+    padding: 7px;
+    margin-right: 30px;
+}
+
 .footer {
     padding: 10px;
     display: flex;
