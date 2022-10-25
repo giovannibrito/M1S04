@@ -1,0 +1,51 @@
+:root {
+    --color-primary: #55c57a;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: var(--color-primary);
+    width: 1000px;
+    margin: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.header__logo {
+    height: 60px;
+}
+
+.header__nome {
+    font-weight: 600;
+    font-size: 24px;
+    margin-left: 5px;
+}
+
+.footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__social--img {
+    height: 30px;
+    margin-right: 3px;
+}
