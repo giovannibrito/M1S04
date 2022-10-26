@@ -48,7 +48,8 @@ form label {
     margin-bottom: 5px;
 }
 
-form input:not([type="button"]) {
+form input:not([type="button"]),
+select {
     margin-bottom: 20px;
     width: 300px;
     height: 30px;
@@ -69,4 +70,8 @@ form input[type="button"] {
 .footer__social--img {
     height: 30px;
     margin-right: 3px;
+}
+
+.hidden {
+    display: none;
 }

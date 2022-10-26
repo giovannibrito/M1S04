@@ -14,7 +14,7 @@
             <h1 class="header__nome">LEAFBANK</h1>
         </header>
         <main>
-            <form class="formulario">
+            <form class="formulario-cadastro">
                 <h2>Formulário de cadastro</h2>
                 <br />
                 <label for="nome">Nome completo</label>
@@ -28,7 +28,26 @@
                 <label for="senha2">Confirme a sua senha</label>
                 <input type="password" name="senha2" id="senha2" />
                 <br />
-                <input type="button" value="Enviar" class="btn-enviar" />
+                <input type="button" value="Enviar" class="btn-enviar-cadastro" />
+                <input type="button" value="Limpar" class="btn-limpar" />
+            </form>
+            <form method="post" class="formulario-operacoes">
+                <h2>Acesso</h2>
+                <br />
+                <label for="operacao">Selecione a operação</label>
+                <select name="operacao" id="operacao">
+                    <option value="saque">Saque</option>
+                    <option value="deposito">Depósito</option>
+                    <option value="saldo">Consulta de saldo</option>
+                </select>
+                <label for="valorOperacao">Valor (R$)</label>
+                <input type="number" name="valorOperacao" id="valorOperacao" />
+                <label for="numeroConta">Número da conta</label>
+                <input type="number" name="numeroConta" id="numeroConta" />
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" />
+                <br />
+                <input type="button" value="Enviar" class="btn-enviar-login" />
                 <input type="button" value="Limpar" class="btn-limpar" />
             </form>
         </main>

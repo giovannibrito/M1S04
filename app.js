@@ -1,15 +1,24 @@
 limpaFormulario();
-const contasUsuarios = [];
-const botaoEnvia = document.querySelector(".btn-enviar");
+const contasUsuarios = [
+    {
+        conta: 1000,
+        senha: "123",
+    },
+];
+const botaoEnviaCadastro = document.querySelector(".btn-enviar-cadastro");
+const botaoEnviaLogin = document.querySelector(".btn-enviar-login");
 const botaoLimpa = document.querySelector(".btn-limpar");
+
 const regexCPF = /^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$/;
 const regexCelular = /^\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}$/;
-botaoEnvia.addEventListener("click", enviaFormulario);
+
+botaoEnviaCadastro.addEventListener("click", enviaFormularioCadastro);
+botaoEnviaLogin.addEventListener("click", enviaFormularioLogin);
 botaoLimpa.addEventListener("click", limpaFormulario);
 
-function enviaFormulario() {
+function enviaFormularioCadastro() {
     const novaConta = {};
-    const inputs = document.querySelectorAll("form input:not([type=button])");
+    const inputs = document.querySelectorAll(".formulario-cadastro input:not([type=button])");
     inputs.forEach((input) => (novaConta[input.name] = input.value));
 
     if (novaConta.nome == "") {
@@ -37,7 +46,55 @@ function enviaFormulario() {
     limpaFormulario();
 }
 
+function enviaFormularioLogin() {
+    const operacao = {};
+    const inputs = document.querySelectorAll(
+        ".formulario-operacoes input:not([type=button]), .formulario-operacoes select"
+    );
+    inputs.forEach((input) => (operacao[input.name] = input.value));
+    verificaLogin(operacao);
+}
+
 function limpaFormulario() {
     const inputs = document.querySelectorAll("form input:not([type=button])");
     inputs.forEach((input) => (input.value = ""));
+}
+
+function verificaLogin(objetoLogin) {
+    const contaLogin = contasUsuarios.find((conta) => conta.conta === Number(objetoLogin.numeroConta));
+    if (!contaLogin) {
+        alert("Conta não encontrada");
+        return;
+    }
+    if (contaLogin.senha != objetoLogin.senha) {
+        alert("Senha inválida");
+        return;
+    }
+
+    switch (objetoLogin.operacao) {
+        case "saque":
+            realizaSaque(contaLogin, Number(objetoLogin.valorOperacao));
+            break;
+        case "deposito":
+            realizaDeposito(contaLogin, Number(objetoLogin.valorOperacao));
+            break;
+        case "saldo":
+            consultaSaldo(contaLogin);
+            break;
+    }
+}
+
+function realizaSaque(conta, valor) {
+    console.log(conta);
+    console.log("saque", valor);
+}
+
+function realizaDeposito(conta, valor) {
+    console.log(conta);
+    console.log("deposito", valor);
+}
+
+function consultaSaldo(conta) {
+    console.log(conta);
+    console.log("saldo", conta.saldo);
 }
