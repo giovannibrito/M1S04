@@ -8,6 +8,7 @@ const botaoEnviaCadastro = document.querySelector(".btn-enviar-cadastro");
 const botaoLimpa = document.querySelector(".btn-limpar");
 const formLogin = document.querySelector(".formulario-operacoes");
 const formCadastro = document.querySelector(".formulario-cadastro");
+const selectOperacao = document.querySelector("#operacao");
 
 const regexCPF = /^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$/;
 const regexCelular = /^\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}$/;
@@ -17,6 +18,7 @@ botaoNavCadastro.addEventListener("click", exibeTelaCadastro);
 botaoEnviaCadastro.addEventListener("click", enviaFormularioCadastro);
 botaoEnviaLogin.addEventListener("click", enviaFormularioLogin);
 botaoLimpa.addEventListener("click", limpaFormulario);
+selectOperacao.addEventListener("change", verificaOperacaoSelecionada);
 
 function enviaFormularioCadastro() {
     const novaConta = {};
@@ -127,4 +129,14 @@ function exibeTelaCadastro(event) {
     limpaFormulario();
     formLogin.classList.add("hidden");
     formCadastro.classList.remove("hidden");
+}
+
+function verificaOperacaoSelecionada(event) {
+    const inputValor = document.querySelector("#valorOperacao");
+    if (event.target.value === "saldo") {
+        inputValor.setAttribute("disabled", "");
+        inputValor.value = "";
+    } else {
+        inputValor.removeAttribute("disabled");
+    }
 }
