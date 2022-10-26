@@ -1,17 +1,19 @@
 limpaFormulario();
-const contasUsuarios = [
-    {
-        conta: 1000,
-        senha: "123",
-    },
-];
-const botaoEnviaCadastro = document.querySelector(".btn-enviar-cadastro");
+const contasUsuarios = [];
+
+const botaoNavInicio = document.querySelector(".btn-nav-inicio");
+const botaoNavCadastro = document.querySelector(".btn-nav-cadastro");
 const botaoEnviaLogin = document.querySelector(".btn-enviar-login");
+const botaoEnviaCadastro = document.querySelector(".btn-enviar-cadastro");
 const botaoLimpa = document.querySelector(".btn-limpar");
+const formLogin = document.querySelector(".formulario-operacoes");
+const formCadastro = document.querySelector(".formulario-cadastro");
 
 const regexCPF = /^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$/;
 const regexCelular = /^\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}$/;
 
+botaoNavInicio.addEventListener("click", exibeTelaInicio);
+botaoNavCadastro.addEventListener("click", exibeTelaCadastro);
 botaoEnviaCadastro.addEventListener("click", enviaFormularioCadastro);
 botaoEnviaLogin.addEventListener("click", enviaFormularioLogin);
 botaoLimpa.addEventListener("click", limpaFormulario);
@@ -85,16 +87,44 @@ function verificaLogin(objetoLogin) {
 }
 
 function realizaSaque(conta, valor) {
-    console.log(conta);
-    console.log("saque", valor);
+    if (valor <= 0) {
+        alert("Valor inválido");
+        return;
+    }
+    if (conta.saldo < valor) {
+        alert(`Saldo insuficiente. Seu saldo atual é de R$${conta.saldo}`);
+        return;
+    }
+    conta.saldo -= valor;
+    alert(`Saque de R$${valor} efetuado com sucesso! Seu novo saldo é R$${conta.saldo}`);
+    limpaFormulario();
 }
 
 function realizaDeposito(conta, valor) {
-    console.log(conta);
-    console.log("deposito", valor);
+    if (valor <= 0) {
+        alert("Valor inválido");
+        return;
+    }
+    conta.saldo += valor;
+    alert(`Depósito de R$${valor} efetuado com sucesso! Seu novo saldo é R$${conta.saldo}`);
+    limpaFormulario();
 }
 
 function consultaSaldo(conta) {
-    console.log(conta);
-    console.log("saldo", conta.saldo);
+    alert(`Seu saldo atual é de R$${conta.saldo}`);
+    limpaFormulario();
+}
+
+function exibeTelaInicio(event) {
+    event.preventDefault();
+    limpaFormulario();
+    formLogin.classList.remove("hidden");
+    formCadastro.classList.add("hidden");
+}
+
+function exibeTelaCadastro(event) {
+    event.preventDefault();
+    limpaFormulario();
+    formLogin.classList.add("hidden");
+    formCadastro.classList.remove("hidden");
 }

@@ -10,11 +10,20 @@
     </head>
     <body>
         <header class="header">
-            <img src="img/leaf.svg" alt="Logo do banco" class="header__logo" />
-            <h1 class="header__nome">LEAFBANK</h1>
+            <div class="header-flex-container">
+                <img src="img/leaf.svg" alt="Logo do banco" class="header__logo" />
+                <h1 class="header__nome">LEAFBANK</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="" class="btn-nav-inicio">Início</a></li>
+                    <li><a href="" class="btn-nav-cadastro">Cadastro</a></li>
+                </ul>
+            </nav>
         </header>
+
         <main>
-            <form class="formulario-cadastro">
+            <form class="formulario-cadastro hidden">
                 <h2>Formulário de cadastro</h2>
                 <br />
                 <label for="nome">Nome completo</label>

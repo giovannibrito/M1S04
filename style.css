@@ -22,7 +22,7 @@ body {
     justify-content: space-between;
 }
 
-.header {
+.header-flex-container {
     display: flex;
     align-items: center;
     padding: 10px;
@@ -36,6 +36,35 @@ body {
     font-weight: 600;
     font-size: 24px;
     margin-left: 5px;
+}
+
+.navbar {
+    margin-top: 20px;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar li {
+    list-style: none;
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+.navbar a:link,
+.navbar a:visited {
+    color: black;
+    padding: 10px;
+    font-size: 24px;
+    margin: 10px;
+}
+
+.navbar a:hover,
+.navbar a:active {
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 main {
