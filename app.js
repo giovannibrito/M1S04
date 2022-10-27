@@ -94,11 +94,11 @@ function realizaSaque(conta, valor) {
         return;
     }
     if (conta.saldo < valor) {
-        alert(`Saldo insuficiente. Seu saldo atual é de R$${conta.saldo}`);
+        alert(`Saldo insuficiente. Seu saldo atual é de R$ ${conta.saldo.toFixed(2)}`);
         return;
     }
     conta.saldo -= valor;
-    alert(`Saque de R$${valor} efetuado com sucesso! Seu novo saldo é R$${conta.saldo}`);
+    alert(`Saque de R$ ${valor.toFixed(2)} efetuado com sucesso! Seu novo saldo é R$ ${conta.saldo.toFixed(2)}`);
     limpaFormulario();
 }
 
@@ -108,12 +108,12 @@ function realizaDeposito(conta, valor) {
         return;
     }
     conta.saldo += valor;
-    alert(`Depósito de R$${valor} efetuado com sucesso! Seu novo saldo é R$${conta.saldo}`);
+    alert(`Depósito de R$ ${valor.toFixed(2)} efetuado com sucesso! Seu novo saldo é R$ ${conta.saldo.toFixed(2)}`);
     limpaFormulario();
 }
 
 function consultaSaldo(conta) {
-    alert(`Seu saldo atual é de R$${conta.saldo}`);
+    alert(`Seu saldo atual é de R$ ${conta.saldo.toFixed(2)}`);
     limpaFormulario();
 }
 
